@@ -62,7 +62,22 @@ namespace ElementMapperExtension
                                     {
                                         // Set value in Object
                                         var Val = DataRead.GetValue(Index);
-                                        Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val, null);
+
+                                        try
+                                        {
+                                            if (Info.PropertyType == Val.GetType())
+                                            {
+                                                Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val, null);
+                                            }
+                                            else if (Info.PropertyType == typeof(string))
+                                            {
+                                                Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val.ToString(), null);
+                                            }
+                                        }
+                                        catch(Exception ex)
+                                        {
+                                            throw;
+                                        }
                                     }
                                 }
                             }
@@ -77,7 +92,22 @@ namespace ElementMapperExtension
                                     {
                                         // Set value in Object
                                         var Val = DataRead.GetValue(Index);
-                                        Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val, null);
+
+                                        try
+                                        {
+                                            if (Info.PropertyType == Val.GetType())
+                                            {
+                                                Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val, null);
+                                            }
+                                            else if (Info.PropertyType == typeof(string))
+                                            {
+                                                Info.SetValue(newObject, (Val == DBNull.Value) ? null : Val.ToString(), null);
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            throw;
+                                        }
                                     }
                                 }
                             }
@@ -145,7 +175,14 @@ namespace ElementMapperExtension
                                 {
                                     // Set value in Object
                                     var Val = DataRead.GetValue(Index);
-                                    Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val, null);
+                                    if (Info.PropertyType == Val.GetType())
+                                    {
+                                        Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val, null);
+                                    }
+                                    else if (Info.PropertyType == typeof(string))
+                                    {
+                                        Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val.ToString(), null);
+                                    }
                                 }
                             }
                         }
@@ -160,7 +197,14 @@ namespace ElementMapperExtension
                                 {
                                     // Set value in Object
                                     var Val = DataRead.GetValue(Index);
-                                    Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val, null);
+                                    if (Info.PropertyType == Val.GetType())
+                                    {
+                                        Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val, null);
+                                    }
+                                    else if (Info.PropertyType == typeof(string))
+                                    {
+                                        Info.SetValue(ObjectReturn, (Val == DBNull.Value) ? null : Val.ToString(), null);
+                                    }
                                 }
                             }
                         }

@@ -60,7 +60,14 @@ namespace ElementMapperExtension
                                     if ((Info != null) && Info.CanWrite)
                                     {
                                         var Val = Dict.ElementAt(Index).Value;
-                                        Info.SetValue(newObject, Val);
+                                        if (Info.PropertyType == Val.GetType())
+                                        {
+                                            Info.SetValue(newObject, Val);
+                                        }
+                                        else if (Info.PropertyType == typeof(string))
+                                        {
+                                            Info.SetValue(newObject, Val.ToString());
+                                        }
                                     }
                                 }
                             }
@@ -73,7 +80,14 @@ namespace ElementMapperExtension
                                     if ((Info != null) && Info.CanWrite)
                                     {
                                         var Val = Dict.ElementAt(Index).Value;
-                                        Info.SetValue(newObject, Val);
+                                        if (Info.PropertyType == Val.GetType())
+                                        {
+                                            Info.SetValue(newObject, Val);
+                                        }
+                                        else if (Info.PropertyType == typeof(string))
+                                        {
+                                            Info.SetValue(newObject, Val.ToString());
+                                        }
                                     }
                                 }
                             }
@@ -139,7 +153,14 @@ namespace ElementMapperExtension
                                 if ((Info != null) && Info.CanWrite)
                                 {
                                     var Val = Dict.ElementAt(Index).Value;
-                                    Info.SetValue(ObjectReturn, Val);
+                                    if (Info.PropertyType == Val.GetType())
+                                    {
+                                        Info.SetValue(ObjectReturn, Val);
+                                    }
+                                    else if (Info.PropertyType == typeof(string))
+                                    {
+                                        Info.SetValue(ObjectReturn, Val.ToString());
+                                    }
                                 }
                             }
                         }
@@ -152,7 +173,14 @@ namespace ElementMapperExtension
                                 if ((Info != null) && Info.CanWrite)
                                 {
                                     var Val = Dict.ElementAt(Index).Value;
-                                    Info.SetValue(ObjectReturn, Val);
+                                    if (Info.PropertyType == Val.GetType())
+                                    {
+                                        Info.SetValue(ObjectReturn, Val);
+                                    }
+                                    else if (Info.PropertyType == typeof(string))
+                                    {
+                                        Info.SetValue(ObjectReturn, Val.ToString());
+                                    }
                                 }
                             }
                         }
