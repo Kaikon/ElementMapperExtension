@@ -41,9 +41,15 @@ namespace ElementMapperExtension
 
                         foreach (object Attr in AttrCollection)
                         {
-                            // Get the ElementMapper name
-                            ElementMapper Element = Attr as ElementMapper;
-                            AttrDict.Add(Element.ElementName.ToUpper(), PropInfo);
+                            if(Attr is ElementMapper)
+                            {
+                                // Get the ElementMapper name
+                                ElementMapper Element = Attr as ElementMapper;
+                                if (Element != null)
+                                {
+                                    AttrDict.Add(Element.ElementName.ToUpper(), PropInfo);
+                                }
+                            }
                         }
                     }
 
@@ -156,9 +162,15 @@ namespace ElementMapperExtension
 
                         foreach (object Attr in AttrCollection)
                         {
-                            // Get the ElementMapper name
-                            ElementMapper Element = Attr as ElementMapper;
-                            AttrDict.Add(Element.ElementName.ToUpper(), PropInfo);
+                            if (Attr is ElementMapper)
+                            {
+                                // Get the ElementMapper name
+                                ElementMapper Element = Attr as ElementMapper;
+                                if (Element != null)
+                                {
+                                    AttrDict.Add(Element.ElementName.ToUpper(), PropInfo);
+                                }
+                            }
                         }
                     }
 
